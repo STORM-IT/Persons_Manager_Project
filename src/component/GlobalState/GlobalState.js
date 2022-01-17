@@ -8,6 +8,7 @@ export default function GlobalState(props) {
     const [getAge, setAge] = useState(0);
     const [getShowList, setShowList] = useState(true);
 
+    console.log(getName)
 
     const add_persons = () => {
 

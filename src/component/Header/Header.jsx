@@ -52,7 +52,7 @@ const Header = () => {
                 <Button type='submit' id='btn_submit' onClick={context.add_persons} className=" mb-5 mt-2">Add persons</Button>
                 <br />
                 <br />
-                <Button onClick={context.show_or_hiden} className={context.showList ? "btn-warning" : "btn-info"}>
+                <Button onClick={()=>context.show_or_hiden} className={context.showList ? "btn-warning" : "btn-info"}>
                     {context.showList ? "HIDEN" : "SHOW"}
                 </Button>
                 <hr />
@@ -61,6 +61,7 @@ const Header = () => {
     </SimpleContext.Consumer>
     )
 }
+console.log();
 export default Header
 
 
