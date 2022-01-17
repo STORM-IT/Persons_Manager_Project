@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import SimpleContext from '../Context/SimpleContext';
-import ERadium from '../exampleRadium/exampleRadium';
-import Person_C from './Pesron_Create'
+import ERadium from '../ExampleRadium/ExampleRadium';
+import Person_C from './PersonsCreate'
 
 const Persons = () => {
 

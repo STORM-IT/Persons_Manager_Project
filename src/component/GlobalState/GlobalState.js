@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import SimpleContext from '../Context/SimpleContext'
-import Persons from '../PERSONS/person_map'
+import Persons from '../Persons/PersonsMap'
 export default function GlobalState(props) {
     const [getListPersons, setListPersons] = useState([]);
     const [getName, setName] = useState("");

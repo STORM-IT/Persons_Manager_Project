@@ -1,11 +1,11 @@
 import { React, useContext, useRef, useEffect } from 'react'
 import { Button, Alert, Badge } from 'react-bootstrap'
 
-import SimpleContext from '../Context/SimpleContext'
+import SimpleContext from './../Context/SimpleContext'
 const Header = () => {
     const context = useContext(SimpleContext);
-    const focusInput = useRef(null);
-
+    // const focusInput = useRef(null);
+    console.log(context);
     const { ListPersons } = context;
     var Color_Badge = "";
     if (ListPersons.length > 5) {
@@ -17,9 +17,9 @@ const Header = () => {
     else {
         Color_Badge = "warning"
     }
-    useEffect(()=>{
-        focusInput.current.focus();
-    },[])
+    // useEffect(()=>{
+    //     focusInput.current.focus();
+    // },[])
     return (<SimpleContext.Consumer>
         {context => (
             <form action='#' onSubmit={event => event.preventDefault()} className="box_obj">
@@ -31,7 +31,7 @@ const Header = () => {
                 <br />
                 <div >
                     <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text" ref={focusInput} onChange={event => { context.set_name_age({ name: event.target.value }) }} placeholder="please type your name" />
+                    <input id='input_text_style' className="Clear" type="text"  onChange={event => { context.set_name_age({ name: event.target.value }) }} placeholder="please type your name" />
                         <span class="span_text_style bottom"></span>
                         <span class="span_text_style right"></span>
                         <span class="span_text_style top"></span>
