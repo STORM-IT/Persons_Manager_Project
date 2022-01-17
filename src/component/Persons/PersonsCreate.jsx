@@ -1,8 +1,9 @@
 import React, { Fragment,useContext} from 'react'
 import {InputGroup,FormControl,Button} from 'react-bootstrap'
 
-
 export default function Pesron_Create({id,name,age,edit_person,delete_person }) {
+
+
     var Name = "";
     var Age = 0;
     return (

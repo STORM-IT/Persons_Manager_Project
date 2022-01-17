@@ -2,9 +2,9 @@ import React, { Fragment } from 'react'
 import SimpleContext from '../Context/SimpleContext';
 import ERadium from '../ExampleRadium/ExampleRadium';
 import Person_C from './PersonsCreate'
-
+import {deletePerson, updatePerson } from '../../Redux/Action/persons';
 const Persons = () => {
-
+    const dispatch = useDispatch();
     return (
         <SimpleContext.Consumer>
             {context => (
@@ -16,8 +16,8 @@ const Persons = () => {
                                     id={item.id}
                                     name={item.name}
                                     age={item.age}
-                                    edit_person={context.edite_person}
-                                    delete_person={context.delete_person}
+                                    edit_person={updatePerson}
+                                    delete_person={deletePerson}
                                 />
                             </Fragment>
                         )
