@@ -4,4 +4,5 @@ import store from './Redux/Store/store'
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-render(<Provider store={store}><App/></Provider>,document.getElementById('root'));
+render(<App/>,document.getElementById('root'));
+// render(<Provider store={store}><App/></Provider>,document.getElementById('root'));

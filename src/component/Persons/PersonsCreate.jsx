@@ -1,6 +1,5 @@
 import React, { Fragment,useContext} from 'react'
 import {InputGroup,FormControl,Button} from 'react-bootstrap'
-import SimpleContext from '../Context/SimpleContext';
 
 
 export default function Pesron_Create({id,name,age,edit_person,delete_person }) {

@@ -31,7 +31,6 @@ const Header = () => {
                 <br />
                 <div >
                     <div id='div_text_style'>
-
                     <input id='input_text_style' className="Clear" type="text" ref={focusInput} onChange={event => { context.set_name_age({ name: event.target.value }) }} placeholder="please type your name" />
                         <span class="span_text_style bottom"></span>
                         <span class="span_text_style right"></span>
@@ -42,7 +41,6 @@ const Header = () => {
                 <br />
                 <div >
                     <div id='div_text_style'>
-
                     <input id='input_text_style' className="Clear" type="text" onChange={event => { context.set_name_age({ age: event.target.value }) }} placeholder="please type your age" />
                         <span class="span_text_style bottom"></span>
                         <span class="span_text_style right"></span>
