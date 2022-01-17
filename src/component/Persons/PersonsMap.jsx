@@ -1,12 +1,7 @@
 import React, { Fragment } from 'react'
-
 import SimpleContext from '../Context/SimpleContext';
-import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import ERadium from '../exampleRadium/exampleRadium';
 import Person_C from './Pesron_Create'
-
-
-
 
 const Persons = () => {
 

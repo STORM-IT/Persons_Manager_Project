@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import propTypes from 'prop-types';
 export default createContext({
     ListPersons:[],
     name:"",
@@ -12,7 +11,3 @@ export default createContext({
     clear_input:()=>{},
     set_name_age:()=>{}
 });
-createContext.propTypes={
-name:propTypes.string,
-age:propTypes.number
-}

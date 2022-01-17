@@ -1,23 +1,7 @@
 import React, { Fragment } from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  NavLink,
-  useLocation,
-  withRouter
-  
-} from "react-router-dom";
+import Header from './component/Header/Header'
 
-import {Alert}from 'react-bootstrap'
-
-
-import Header from '../Header/Header'
-
-
-
-export default  function App(prop)  {
+export default function App(prop)  {
   return (
     <Fragment>
         <Header/>

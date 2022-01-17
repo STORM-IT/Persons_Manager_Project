@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 import SimpleContext from '../Context/SimpleContext'
 import Persons from '../PERSONS/person_map'
 export default function GlobalState(props) {
