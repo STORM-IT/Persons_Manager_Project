@@ -13,7 +13,7 @@ export default function Pesron_Create({id,name,age,edit_person,delete_person }) 
                                 <p className='text-white'>your age is = {age}</p>
                                 <InputGroup>
                                     <FormControl onChange={event => Name = event.target.value} className="Clear" placeholder={name} />
-                                    <Button variant='primary' onClick={() => edit_person(Name, Age, id)} className="btn  w-25">Edite</Button>
+                                    <Button variant='primary' onClick={edite} className="btn  w-25">Edite</Button>
                                 </InputGroup>
                                 <br />
                                 <InputGroup>
