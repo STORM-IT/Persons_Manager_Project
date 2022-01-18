@@ -56,8 +56,9 @@ const Header = () => {
             <br />
             <br />
             <Button onClick={()=>dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>
-            {List_showPersons ? <PersonsMap/> : "SHOW"}
+            {List_showPersons ? "HIDDEN" : "SHOW"}
             </Button>
+            <PersonsMap/>
             <hr />
         </form>
     )
