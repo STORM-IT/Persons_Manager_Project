@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import SimpleContext from '../Context/SimpleContext';
 import ERadium from '../ExampleRadium/ExampleRadium';
 import Person_C from './PersonsCreate'
 import { deletePerson, updatePerson } from '../../Redux/Action/persons';
