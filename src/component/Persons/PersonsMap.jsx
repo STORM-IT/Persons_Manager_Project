@@ -15,8 +15,10 @@ const Persons = () => {
                         <Person_C
                             name={item.name}
                             age={item.age}
-                            edit_person={dispatch(updatePerson(item.id,item.name,item.age))}
-                            delete_person={dispatch(deletePerson(item.id))}
+                            edit_name_person={dispatch(updateNamePerson())}
+                            // edit_name_person={dispatch(updateNamePerson(item.id,e.target.value,item.age))}
+                            edit_age_person={dispatch(updateAgePerson())}
+                            delete_person={dispatch(deletePerson())}
                         />
                     </Fragment>
                 )

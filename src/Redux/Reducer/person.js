@@ -3,8 +3,6 @@ export const personReducer=(state='',action)=>{
         case "CLEAR_INPUT":return action.payload;
         case "SET_PERSON":return action.payload;
             
-          
-    
         default: return state;
     }
 }
