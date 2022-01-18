@@ -1,8 +1,8 @@
+import { toast } from "react-toastify";
 import { clearInput } from "./person";
-
 export const addPersons=(name,age)=>{
     return async (dispatch,getState)=>{
-        if (fullname && age) {
+        if (name && age) {
             const List_P = [...getState().persons]
             const person = { name, age, id: Math.floor(Math.random() * 1000) };
             List_P.push(person)
