@@ -1,13 +1,13 @@
-import { React, useContext, useRef, useEffect } from 'react'
+import { React} from 'react'
 import { Button, Alert, Badge } from 'react-bootstrap'
 import { useSelector,useDispatch } from 'react-redux'
 import {showPersons} from '../../Redux/Action/showPersons.js';
 import { addPersons } from '../../Redux/Action/persons.js'
+import { setPerson } from '../../Redux/Action/person.js';
 
-const Header = () => {
-    // const focusInput = useRef(null);
-    
+    export default function Header() {
     const persons = useSelector(state => state.persons)
+    const person = useSelector(state => state.person)
     const List_showPersons = useSelector(state => state.showPersons)
     const dispatch = useDispatch()
     var Color_Badge = "";
@@ -20,9 +20,6 @@ const Header = () => {
     else {
         Color_Badge = "warning"
     }
-    // useEffect(()=>{
-    //     focusInput.current.focus();
-    // },[])
     var fullname='';
     return (
         <form action='#' onSubmit={event => event.preventDefault()} className="box_obj">
@@ -34,7 +31,7 @@ const Header = () => {
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text"  onChange={event =>fullname= event.target.value } placeholder="please type your name" />
+                    <input id='input_text_style' className="Clear" type="text"  onChange={event =>dispatch(setPerson(event)) } placeholder="please type your name" />
                     <span class="span_text_style bottom"></span>
                     <span class="span_text_style right"></span>
                     <span class="span_text_style top"></span>
@@ -42,17 +39,17 @@ const Header = () => {
                 </div>
             </div>
             <br />
-            <div >
+            {/* <div >
                 <div id='div_text_style'>
-                    {/* <input id='input_text_style' className="Clear" type="text" onChange={event => {Age= event.target.value} } placeholder="please type your age" /> */}
-                    {/* <span class="span_text_style bottom"></span> */}
-                    {/* <span class="span_text_style right"></span> */}
-                    {/* <span class="span_text_style top"></span> */}
-                    {/* <span class="span_text_style left"></span> */}
+                    <input id='input_text_style' className="Clear" type="text" onChange={event => {Age= event.target.value} } placeholder="please type your age" />
+                    <span class="span_text_style bottom"></span>
+                    <span class="span_text_style right"></span>
+                    <span class="span_text_style top"></span>
+                    <span class="span_text_style left"></span>
                 </div>
             </div>
-            <br />
-            <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(fullname))} className=" mb-5 mt-2">Add persons</Button>
+            <br /> */}
+            <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(person))} className=" mb-5 mt-2">Add persons</Button>
             <br />
             <br />
             <Button onClick={()=>dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>
@@ -61,10 +58,6 @@ const Header = () => {
             
             <hr />
         </form>
+        
     )
 }
-
-
-export default Header
-
-

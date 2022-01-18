@@ -10,23 +10,25 @@ export default function PersonsMap() {
     const persons = useSelector(state => state.persons)
     const dispatch = useDispatch();
     return (
-        <div id="container_person" className='h-25 overflow-hidden'>
-            {persons.map((item) => {
+        <div>
+
+            {persons.map(person => {
                 return (
-                    <Fragment>
+                    <div>
                         <Person_C
-                            key={item.id}
-                            fullname={item.fullname}
-                            // age={item.age}
+                            key={person.id}
+                            fullname={person.fullname}
+                            // age={person.age}
                             // edit_name_person={dispatch(updateNamePerson())}
-                            // edit_name_person={dispatch(updateNamePerson(item.id,e.target.value,item.age))}
-                            edit_age_person={(e) => dispatch(updatePerson(item.id, e.target.value))}
-                            delete_person={() => dispatch(deletePerson(item.id))}
+                            // edit_name_person={dispatch(updateNamePerson(person.id,e.target.value,person.age))}
+                            edit_age_person={e => dispatch(updatePerson(e,person.id))}
+                            delete_person={() => dispatch(deletePerson(person.id))}
                         />
-                    </Fragment>
+                    </div>
                 )
             })}
         </div>
+
         
     )
 }
