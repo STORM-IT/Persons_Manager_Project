@@ -22,8 +22,7 @@ const Header = () => {
     // useEffect(()=>{
     //     focusInput.current.focus();
     // },[])
-    var Name='';
-    var Age=0;
+    var fullname='';
     return (
         <form action='#' onSubmit={event => event.preventDefault()} className="box_obj">
             <Alert className='' id='Close'>
@@ -34,7 +33,7 @@ const Header = () => {
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text"  onChange={event =>Name= event.target.value } placeholder="please type your name" />
+                    <input id='input_text_style' className="Clear" type="text"  onChange={event =>fullname= event.target.value } placeholder="please type your name" />
                     <span class="span_text_style bottom"></span>
                     <span class="span_text_style right"></span>
                     <span class="span_text_style top"></span>
@@ -44,15 +43,15 @@ const Header = () => {
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text" onChange={event => {Age= event.target.value} } placeholder="please type your age" />
-                    <span class="span_text_style bottom"></span>
-                    <span class="span_text_style right"></span>
-                    <span class="span_text_style top"></span>
-                    <span class="span_text_style left"></span>
+                    {/* <input id='input_text_style' className="Clear" type="text" onChange={event => {Age= event.target.value} } placeholder="please type your age" /> */}
+                    {/* <span class="span_text_style bottom"></span> */}
+                    {/* <span class="span_text_style right"></span> */}
+                    {/* <span class="span_text_style top"></span> */}
+                    {/* <span class="span_text_style left"></span> */}
                 </div>
             </div>
             <br />
-            <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(Name,Age))} className=" mb-5 mt-2">Add persons</Button>
+            <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(fullname))} className=" mb-5 mt-2">Add persons</Button>
             <br />
             <br />
             <Button onClick={()=>dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>

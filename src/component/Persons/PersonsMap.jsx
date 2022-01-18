@@ -5,25 +5,32 @@ import { deletePerson, updatePerson } from '../../Redux/Action/persons';
 import { useDispatch, useSelector } from 'react-redux';
 const Persons = () => {
     const persons = useSelector(state => state.persons)
+
+
     const dispatch = useDispatch();
+    debugger
     return (
+
+        <Fragment>
 
         <div id="container_person" className='h-25 overflow-hidden'>
             {persons.map((item) => {
                 return (
                     <Fragment>
                         <Person_C
-                            name={item.name}
-                            age={item.age}
+                            key={item.id}
+                            fullname={item.fullname}
+                            // age={item.age}
                             // edit_name_person={dispatch(updateNamePerson())}
                             // edit_name_person={dispatch(updateNamePerson(item.id,e.target.value,item.age))}
-                            edit_age_person={dispatch(updatePerson())}
-                            delete_person={dispatch(deletePerson())}
+                            edit_age_person={(e) => dispatch(updatePerson(item.id, e.target.value))}
+                            delete_person={() => dispatch(deletePerson(item.id))}
                         />
                     </Fragment>
                 )
             })}
         </div>
+        </Fragment>
     )
 
 
