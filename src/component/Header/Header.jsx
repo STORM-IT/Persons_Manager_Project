@@ -3,7 +3,7 @@ import { Button, Alert, Badge } from 'react-bootstrap'
 import { useSelector,useDispatch } from 'react-redux'
 import {showPersons} from '../../Redux/Action/showPersons.js';
 import { addPersons } from '../../Redux/Action/persons.js'
-import PersonsMap from '../Persons/PersonsMap.jsx';
+
 const Header = () => {
     // const focusInput = useRef(null);
     const persons = useSelector(state => state.persons)
@@ -58,7 +58,7 @@ const Header = () => {
             <Button onClick={()=>dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>
             {List_showPersons ? "HIDDEN" : "SHOW"}
             </Button>
-            <PersonsMap/>
+            
             <hr />
         </form>
     )
