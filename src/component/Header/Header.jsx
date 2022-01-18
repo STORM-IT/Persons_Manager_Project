@@ -3,9 +3,9 @@ import { Button, Alert, Badge } from 'react-bootstrap'
 import { useSelector,useDispatch } from 'react-redux'
 import {showPersons} from '../../Redux/Action/showPersons.js';
 import { addPersons } from '../../Redux/Action/persons.js'
+import PersonsMap from '../Persons/PersonsMap.jsx';
 const Header = () => {
     // const focusInput = useRef(null);
-    console.log(addPersons);
     const persons = useSelector(state => state.persons)
     const List_showPersons = useSelector(state => state.showPersons)
     const dispatch = useDispatch()
@@ -22,8 +22,8 @@ const Header = () => {
     // useEffect(()=>{
     //     focusInput.current.focus();
     // },[])
-    const name='';
-    const age=0;
+    var Name='';
+    var Age=0;
     return (
         <form action='#' onSubmit={event => event.preventDefault()} className="box_obj">
             <Alert className='' id='Close'>
@@ -34,7 +34,7 @@ const Header = () => {
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text"  onChange={event => name= event.target.value  } placeholder="please type your name" />
+                    <input id='input_text_style' className="Clear" type="text"  onChange={event =>Name= event.target.value } placeholder="please type your name" />
                     <span class="span_text_style bottom"></span>
                     <span class="span_text_style right"></span>
                     <span class="span_text_style top"></span>
@@ -44,7 +44,7 @@ const Header = () => {
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text" onChange={event => age= event.target.value } placeholder="please type your age" />
+                    <input id='input_text_style' className="Clear" type="text" onChange={event => {Age= event.target.value} } placeholder="please type your age" />
                     <span class="span_text_style bottom"></span>
                     <span class="span_text_style right"></span>
                     <span class="span_text_style top"></span>
@@ -52,11 +52,11 @@ const Header = () => {
                 </div>
             </div>
             <br />
-            {/* <Button type='submit' id='btn_submit' onClick={add_person} className=" mb-5 mt-2">Add persons</Button> */}
+            <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(Name,Age))} className=" mb-5 mt-2">Add persons</Button>
             <br />
             <br />
             <Button onClick={()=>dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>
-            {List_showPersons ? "HIDEN" : "SHOW"}
+            {List_showPersons ? <PersonsMap/> : "SHOW"}
             </Button>
             <hr />
         </form>
