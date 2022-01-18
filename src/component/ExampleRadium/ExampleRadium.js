@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 
-export default function exampleRadium(DOM,classes) {
-  return ()=> (
-    <div className={classes}>
-      <DOM />
-    </div>
-  )
-}
+// export default function exampleRadium(DOM,classes) {
+//   return ()=> (
+//     <div className={classes}>
+//       <DOM />
+//     </div>
+//   )
+// }

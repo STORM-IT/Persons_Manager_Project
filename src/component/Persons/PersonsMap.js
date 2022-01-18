@@ -1,18 +1,15 @@
+
 import React, { Fragment } from 'react'
-import ERadium from '../ExampleRadium/ExampleRadium';
+// import ERadium from '../ExampleRadium/ExampleRadium';
 import Person_C from './PersonsCreate'
 import { deletePerson, updatePerson } from '../../Redux/Action/persons';
 import { useDispatch, useSelector } from 'react-redux';
-const Persons = () => {
+
+debugger
+export default function PersonsMap() {
     const persons = useSelector(state => state.persons)
-
-
     const dispatch = useDispatch();
-    debugger
     return (
-
-        <Fragment>
-
         <div id="container_person" className='h-25 overflow-hidden'>
             {persons.map((item) => {
                 return (
@@ -30,9 +27,8 @@ const Persons = () => {
                 )
             })}
         </div>
-        </Fragment>
+        
     )
-
-
 }
-export default ERadium(Persons, "container_person");
+
+// export default ERadium(Persons, "container_person");
