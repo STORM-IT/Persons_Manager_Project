@@ -1,15 +1,19 @@
 import { React, useContext, useRef, useEffect } from 'react'
 import { Button, Alert, Badge } from 'react-bootstrap'
-import { addPersons } from '../../Redux/Action/persons'
+import { useSelector,useDispatch } from 'react-redux'
+import {showPersons} from '../../Redux/Action/showPersons.js';
+import { addPersons } from '../../Redux/Action/persons.js'
 const Header = () => {
     // const focusInput = useRef(null);
-    console.log(context);
-    const { ListPersons } = context;
+    console.log(addPersons);
+    const persons = useSelector(state => state.persons)
+    const List_showPersons = useSelector(state => state.showPersons)
+    const dispatch = useDispatch()
     var Color_Badge = "";
-    if (ListPersons.length > 5) {
+    if (persons.length > 5) {
         Color_Badge = "success"
     }
-    else if (ListPersons.length < 3) {
+    else if (persons.length < 3) {
         Color_Badge = "danger"
     }
     else {
@@ -18,17 +22,19 @@ const Header = () => {
     // useEffect(()=>{
     //     focusInput.current.focus();
     // },[])
+    const name='';
+    const age=0;
     return (
         <form action='#' onSubmit={event => event.preventDefault()} className="box_obj">
             <Alert className='' id='Close'>
                 <p> Please write your information and click <kbd className="bg-success">Add Person</kbd></p>
             </Alert>
             <br />
-            {/* <Badge pill bg='light' className='p-2 display-3' >Youre lenght list persons is <Badge bg={Color_Badge}>{context.ListPersons.length}</Badge> 👀</Badge> */}
+            <Badge pill bg='light' className='p-2 display-3' >Youre lenght list persons is <Badge bg={Color_Badge}>{persons.length}</Badge> 👀</Badge>
             <br />
             <div >
                 <div id='div_text_style'>
-                    {/* <input id='input_text_style' className="Clear" type="text"  onChange={event => { context.set_name_age({ name: event.target.value }) }} placeholder="please type your name" /> */}
+                    <input id='input_text_style' className="Clear" type="text"  onChange={event => name= event.target.value  } placeholder="please type your name" />
                     <span class="span_text_style bottom"></span>
                     <span class="span_text_style right"></span>
                     <span class="span_text_style top"></span>
@@ -38,7 +44,7 @@ const Header = () => {
             <br />
             <div >
                 <div id='div_text_style'>
-                    {/* <input id='input_text_style' className="Clear" type="text" onChange={event => { context.set_name_age({ age: event.target.value }) }} placeholder="please type your age" /> */}
+                    <input id='input_text_style' className="Clear" type="text" onChange={event => age= event.target.value } placeholder="please type your age" />
                     <span class="span_text_style bottom"></span>
                     <span class="span_text_style right"></span>
                     <span class="span_text_style top"></span>
@@ -46,18 +52,16 @@ const Header = () => {
                 </div>
             </div>
             <br />
-            {/* <Button type='submit' id='btn_submit' onClick={context.add_persons} className=" mb-5 mt-2">Add persons</Button> */}
+            {/* <Button type='submit' id='btn_submit' onClick={add_person} className=" mb-5 mt-2">Add persons</Button> */}
             <br />
             <br />
-            {/* <Button onClick={()=>context.show_or_hiden} className={context.showList ? "btn-warning" : "btn-info"}> */}
-            {/* {context.showList ? "HIDEN" : "SHOW"} */}
-            {/* </Button> */}
+            <Button onClick={()=>dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>
+            {List_showPersons ? "HIDEN" : "SHOW"}
+            </Button>
             <hr />
         </form>
     )
 }
-    
-    
 
 
 export default Header
