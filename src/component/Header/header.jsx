@@ -22,6 +22,8 @@ import { setPerson } from '../../Redux/Action/person.js';
     }
     var fullname='';
     return (
+        <div>
+
         <form action='#' onSubmit={event => event.preventDefault()} className="box_obj">
             <Alert className='' id='Close'>
                 <p> Please write your information and click <kbd className="bg-success">Add Person</kbd></p>
@@ -32,23 +34,13 @@ import { setPerson } from '../../Redux/Action/person.js';
             <div >
                 <div id='div_text_style'>
                     <input id='input_text_style' className="Clear" type="text"  onChange={event =>dispatch(setPerson(event)) } placeholder="please type your name" />
-                    <span class="span_text_style bottom"></span>
-                    <span class="span_text_style right"></span>
-                    <span class="span_text_style top"></span>
-                    <span class="span_text_style left"></span>
+                    <span className="span_text_style bottom"></span>
+                    <span className="span_text_style right"></span>
+                    <span className="span_text_style top"></span>
+                    <span className="span_text_style left"></span>
                 </div>
             </div>
             <br />
-            {/* <div >
-                <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text" onChange={event => {Age= event.target.value} } placeholder="please type your age" />
-                    <span class="span_text_style bottom"></span>
-                    <span class="span_text_style right"></span>
-                    <span class="span_text_style top"></span>
-                    <span class="span_text_style left"></span>
-                </div>
-            </div>
-            <br /> */}
             <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(person))} className=" mb-5 mt-2">Add persons</Button>
             <br />
             <br />
@@ -57,7 +49,8 @@ import { setPerson } from '../../Redux/Action/person.js';
             </Button>
             
             <hr />
-        </form>
+         </form>
+        </div>
         
     )
 }

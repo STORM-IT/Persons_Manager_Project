@@ -5,7 +5,7 @@ import Person_C from './PersonsCreate'
 import { deletePerson, updatePerson } from '../../Redux/Action/persons';
 import { useDispatch, useSelector } from 'react-redux';
 
-debugger
+
 export default function PersonsMap() {
     const persons = useSelector(state => state.persons)
     const dispatch = useDispatch();
@@ -14,14 +14,14 @@ export default function PersonsMap() {
 
             {persons.map(person => {
                 return (
-                    <div>
+                    <div id="container_person" className='h-25 overflow-hidden'>
                         <Person_C
                             key={person.id}
                             fullname={person.fullname}
                             // age={person.age}
                             // edit_name_person={dispatch(updateNamePerson())}
                             // edit_name_person={dispatch(updateNamePerson(person.id,e.target.value,person.age))}
-                            edit_age_person={e => dispatch(updatePerson(e,person.id))}
+                            edit_person={e => dispatch(updatePerson(e,person.id))}
                             delete_person={() => dispatch(deletePerson(person.id))}
                         />
                     </div>
