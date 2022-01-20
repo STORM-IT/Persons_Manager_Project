@@ -32,8 +32,8 @@ export const addPersons=(fullname)=>{
         }
         if (fullname != '' && fullname != " ") {
             List_Person.push(person);
-            await dispatch({ type: "ADD_PERSON", payload: List_Person })
             await dispatch(clearInput());
+            await dispatch({ type: "ADD_PERSON", payload: List_Person })
         }
     }
 }
@@ -50,7 +50,7 @@ export const deletePerson=(id)=>{
         await dispatch({type:"DELETE_PERSONS", payload:filter_persons})
     }
 }
-export const updatePerson=(event,id)=>{
+export const updatePerson=(fullname,id)=>{
     return async (dispatch,getState)=>{
         // debugger
         // const Persons=[...getState().persons];
@@ -60,10 +60,11 @@ export const updatePerson=(event,id)=>{
         // if (fullname) {person.fullname=fullname}
         // Persons[findIndex]=person;
         // await dispatch({type:"UPDATE_PERSON",payload:Persons})
+        debugger
         const List_Person = [...getState().persons];
         const find_index = List_Person.findIndex(person => person.id == id);
         const person = List_Person[find_index];
-        person.fullname=event.target.value
+        person.fullname=fullname
         List_Person[find_index]=person;
         await dispatch({type:"UPDATE_PERSON",payload:List_Person})
     }

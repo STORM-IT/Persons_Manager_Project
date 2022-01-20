@@ -29,11 +29,11 @@ import { setPerson } from '../../Redux/Action/person.js';
                 <p> Please write your information and click <kbd className="bg-success">Add Person</kbd></p>
             </Alert>
             <br />
-            <Badge pill bg='light' className='p-2 display-3' >Youre lenght list persons is <Badge bg={Color_Badge}>{persons.length}</Badge> 👀</Badge>
+            <Badge pill bg='light' className='p-2 display-3 text-dark' >Youre lenght list persons is <Badge bg={Color_Badge}>{persons.length}</Badge> 👀</Badge>
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' className="Clear" type="text"  onChange={event =>dispatch(setPerson(event)) } placeholder="please type your name" />
+                    <input id='input_text_style' value={person} className="Clear" type="text"  onChange={event =>dispatch(setPerson(event)) } placeholder="please type your name" />
                     <span className="span_text_style bottom"></span>
                     <span className="span_text_style right"></span>
                     <span className="span_text_style top"></span>

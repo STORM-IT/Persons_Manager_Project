@@ -1,10 +1,9 @@
-export const personsReducer=(state=[],action)=>{
-    debugger
+export const personsReducer = (state = [], action) => {
     switch (action.type) {
-        case "ADD_PERSON":return [...action.payload];
-        case "UPDATE_PERSON":return [...action.payload];
-        case "DELETE_PERSONS":return [...action.payload];
-    
+        case "ADD_PERSON": return [...action.payload];
+        case "UPDATE_PERSON": return [...action.payload];
+        case "DELETE_PERSONS": return [...action.payload];
+
         default: return state;
     }
 }
