@@ -1,6 +1,6 @@
 export const clearFullnameInput=()=>{
     return async (dispatch)=>{
-        return await dispatch({type:"CLEAR_NAME_INPUT",payload:""})
+        return await dispatch({type:"CLEAR_FULLNAME_INPUT",payload:""})
     }
 }
 

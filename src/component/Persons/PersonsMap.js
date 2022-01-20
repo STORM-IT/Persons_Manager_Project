@@ -11,7 +11,8 @@ import { setAgePerson } from '../../Redux/Action/person_age';
 
 export default function PersonsMap() {
     const persons = useSelector(state => state.persons)
-    const getPerson = useSelector(state => state.person)
+    const person_fullname = useSelector(state => state.person_fullname)
+    const person_age = useSelector(state => state.person_age)
     
     const dispatch = useDispatch();
     return (
@@ -24,12 +25,9 @@ export default function PersonsMap() {
                             id={person.id}
                             fullname={person.fullname}
                             age={person.age}
-                            // age={person.age}
-                            // edit_name_person={dispatch(updateNamePerson())}
-                            // edit_name_person={dispatch(updateNamePerson(person.id,e.target.value,person.age))}
-                            set_fullname_person={e=>dispatch(setAgePerson(e))}
-                            set_age_person={e=>dispatch(setFullnamePerson(e))}
-                            edit_person={updatePerson}
+                            set_fullname_person={e=>dispatch(setFullnamePerson(e))}
+                            set_age_person={e=>dispatch(setAgePerson(e))}
+                            edit_person={()=>dispatch(updatePerson(person_fullname,person_age,person.id))}
                             delete_person={() => dispatch(deletePerson(person.id))}
                         />
                     </div>

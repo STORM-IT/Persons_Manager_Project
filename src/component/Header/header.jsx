@@ -44,6 +44,7 @@ import { setAgePerson } from '../../Redux/Action/person_age.js';
                     <span className="span_text_style left"></span>
                 </div>
             </div>
+         
             <div >
                 <div id='div_text_style'>
                     <input id='input_text_style' value={person_age} className="Clear" type="text"  onChange={event =>dispatch(setAgePerson(event)) } placeholder="please type your name" />
