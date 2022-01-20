@@ -62,6 +62,11 @@ export const updatePerson=(fullname,id)=>{
         // Persons[findIndex]=person;
         // await dispatch({type:"UPDATE_PERSON",payload:Persons})
         debugger
+        const getInput_update= document.querySelectorAll(".Clear");
+        for (let i = 0; i < getInput_update.length; i++) {
+            getInput_update[i].value=""
+            
+        }
         const List_Person = [...getState().persons];
         const find_index = List_Person.findIndex(person => person.id == id);
         const person = List_Person[find_index];
