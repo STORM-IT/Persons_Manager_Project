@@ -1,20 +1,22 @@
 import React, { Fragment, useContext } from 'react'
 import { InputGroup, FormControl, Button } from 'react-bootstrap'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function Pesron_Create({ fullname, edit_person, delete_person,set_person }) {
+export default function Pesron_Create({ id, fullname, edit_person, delete_person, set_person }) {
 
-    const name = "";
+    var Name = "";
     var Age = 0;
-    const person=useSelector(state=>state.person)
+    const dispatch=useDispatch();
+    
+    const person = useSelector(state => state.person)
     return (
 
         <div className="box_person">
             <p className='text-white'>your name is = {fullname}</p>
             {/* <p className='text-white'>your age is = {age}</p> */}
             <InputGroup>
-                <FormControl onChange={set_person} className="Clear" placeholder={fullname} />
-                <Button variant='primary' onClick={edit_person} className="btn  w-25">Edite</Button>
+                <FormControl onChange={event => Name = event.target.value} className="Clear" placeholder={fullname} />
+                <Button variant='primary' onClick={(e)=>dispatch(edit_person(Name,id))} className="btn  w-25">Edite</Button>
             </InputGroup>
             <br />
             <div className='d-grid gap-1'>

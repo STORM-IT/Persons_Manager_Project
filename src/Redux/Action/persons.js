@@ -25,6 +25,7 @@ export const addPersons=(fullname)=>{
         // else{
         //     console.log("null")
         // }
+        // debugger
         const List_Person = [...getState().persons];
         const person = {
             fullname,

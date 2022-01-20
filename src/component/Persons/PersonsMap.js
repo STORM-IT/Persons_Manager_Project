@@ -20,11 +20,12 @@ export default function PersonsMap() {
                     <div id="container_person" className='h-25 overflow-hidden'>
                         <Person_C
                             fullname={person.fullname}
+                            id={person.id}
                             // age={person.age}
                             // edit_name_person={dispatch(updateNamePerson())}
                             // edit_name_person={dispatch(updateNamePerson(person.id,e.target.value,person.age))}
                             set_person={e=>dispatch(setPerson(e))}
-                            edit_person={e => dispatch(updatePerson(getPerson,person.id))}
+                            edit_person={updatePerson}
                             delete_person={() => dispatch(deletePerson(person.id))}
                         />
                     </div>
