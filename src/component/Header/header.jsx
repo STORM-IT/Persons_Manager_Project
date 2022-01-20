@@ -3,11 +3,15 @@ import { Button, Alert, Badge } from 'react-bootstrap'
 import { useSelector,useDispatch } from 'react-redux'
 import {showPersons} from '../../Redux/Action/showPersons.js';
 import { addPersons } from '../../Redux/Action/persons.js'
-import { setPerson } from '../../Redux/Action/person.js';
+import { setFullnamePerson } from '../../Redux/Action/person_fullname.js';
+import { setAgePerson } from '../../Redux/Action/person_age.js';
+
 
     export default function Header() {
     const persons = useSelector(state => state.persons)
-    const person = useSelector(state => state.person)
+    const person_fullname = useSelector(state => state.person_fullname)
+    const person_age = useSelector(state => state.person_age)
+
     const List_showPersons = useSelector(state => state.showPersons)
     const dispatch = useDispatch()
     var Color_Badge = "";
@@ -33,7 +37,16 @@ import { setPerson } from '../../Redux/Action/person.js';
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' value={person} className="Clear" type="text"  onChange={event =>dispatch(setPerson(event)) } placeholder="please type your name" />
+                    <input id='input_text_style' value={person_fullname} className="Clear" type="text"  onChange={event =>dispatch(setFullnamePerson(event)) } placeholder="please type your name" />
+                    <span className="span_text_style bottom"></span>
+                    <span className="span_text_style right"></span>
+                    <span className="span_text_style top"></span>
+                    <span className="span_text_style left"></span>
+                </div>
+            </div>
+            <div >
+                <div id='div_text_style'>
+                    <input id='input_text_style' value={person_age} className="Clear" type="text"  onChange={event =>dispatch(setAgePerson(event)) } placeholder="please type your name" />
                     <span className="span_text_style bottom"></span>
                     <span className="span_text_style right"></span>
                     <span className="span_text_style top"></span>
@@ -41,7 +54,7 @@ import { setPerson } from '../../Redux/Action/person.js';
                 </div>
             </div>
             <br />
-            <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(person))} className=" mb-5 mt-2">Add persons</Button>
+            <Button type='submit' id='btn_submit' onClick={()=>dispatch(addPersons(person_fullname,person_age))} className=" mb-5 mt-2">Add persons</Button>
             <br />
             <br />
             <Button onClick={()=>dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>

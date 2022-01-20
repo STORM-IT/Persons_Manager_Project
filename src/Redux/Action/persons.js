@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
-import { clearInput } from "./person";
-export const addPersons=(fullname)=>{
+import{clearFullnameInput} from './person_fullname'
+import{clearAgeInput} from './person_age'
+export const addPersons=(fullname,age)=>{
     return async (dispatch,getState)=>{
         
             
@@ -25,16 +26,18 @@ export const addPersons=(fullname)=>{
         // else{
         //     console.log("null")
         // }
-        // debugger
+         debugger
         const List_Person = [...getState().persons];
         const person = {
             fullname,
+            age,
             id: Math.floor(Math.random() * 1000)
         }
         if (fullname != '' && fullname != " ") {
             List_Person.push(person);
-            await dispatch(clearInput());
             await dispatch({ type: "ADD_PERSON", payload: List_Person })
+            await dispatch(clearFullnameInput());
+            await dispatch(clearAgeInput());
         }
     }
 }
@@ -51,27 +54,27 @@ export const deletePerson=(id)=>{
         await dispatch({type:"DELETE_PERSONS", payload:filter_persons})
     }
 }
-export const updatePerson=(fullname,id)=>{
+export const updatePerson=(fullname,age,id)=>{
     return async (dispatch,getState)=>{
-        // debugger
-        // const Persons=[...getState().persons];
-        // const findIndex=Persons.findIndex(e=>e.id=id);
-        // const person= Persons[findIndex];
-        // // if (name) {person.name=name}
-        // if (fullname) {person.fullname=fullname}
-        // Persons[findIndex]=person;
-        // await dispatch({type:"UPDATE_PERSON",payload:Persons})
         debugger
-        const getInput_update= document.querySelectorAll(".Clear");
-        for (let i = 0; i < getInput_update.length; i++) {
-            getInput_update[i].value=""
-            
-        }
-        const List_Person = [...getState().persons];
-        const find_index = List_Person.findIndex(person => person.id == id);
-        const person = List_Person[find_index];
-        person.fullname=fullname
-        List_Person[find_index]=person;
-        await dispatch({type:"UPDATE_PERSON",payload:List_Person})
+        const Persons=[...getState().persons];
+        const findIndex=Persons.findIndex(e=>e.id=id);
+        const person= Persons[findIndex];
+        if (fullname) {person.fullname=fullname}
+        if (age) {person.age=age}
+        Persons[findIndex]=person;
+        await dispatch({type:"UPDATE_PERSON",payload:Persons})
+        await dispatch(clearFullnameInput());
+        await dispatch(clearAgeInput());
+        // const getInput_update= document.querySelectorAll(".Clear");
+        // for (let i = 0; i < getInput_update.length; i++) {
+        //     getInput_update[i].value=""
+        // }
+        // const List_Person = [...getState().persons];
+        // const find_index = List_Person.findIndex(person => person.id == id);
+        // const person = List_Person[find_index];
+        // person.fullname=fullname
+        // List_Person[find_index]=person;
+        // await dispatch({type:"UPDATE_PERSON",payload:List_Person})
     }
 }

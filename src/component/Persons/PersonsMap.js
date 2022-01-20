@@ -4,7 +4,9 @@ import React, { Fragment } from 'react'
 import Person_C from './PersonsCreate'
 import { deletePerson, updatePerson } from '../../Redux/Action/persons';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPerson } from '../../Redux/Action/person';
+import { setFullnamePerson } from '../../Redux/Action/person_fullname';
+import { setAgePerson } from '../../Redux/Action/person_age';
+
 
 
 export default function PersonsMap() {
@@ -19,12 +21,14 @@ export default function PersonsMap() {
                 return (
                     <div id="container_person" className='h-25 overflow-hidden'>
                         <Person_C
-                            fullname={person.fullname}
                             id={person.id}
+                            fullname={person.fullname}
+                            age={person.age}
                             // age={person.age}
                             // edit_name_person={dispatch(updateNamePerson())}
                             // edit_name_person={dispatch(updateNamePerson(person.id,e.target.value,person.age))}
-                            set_person={e=>dispatch(setPerson(e))}
+                            set_fullname_person={e=>dispatch(setAgePerson(e))}
+                            set_age_person={e=>dispatch(setFullnamePerson(e))}
                             edit_person={updatePerson}
                             delete_person={() => dispatch(deletePerson(person.id))}
                         />
