@@ -5,7 +5,6 @@ export const clearFullnameInput=()=>{
 }
 
 export const setFullnamePerson=(e)=>{
-    debugger
     return async (dispatch)=>{
         return await dispatch({type:"SET_FULLNAME_PERSON",payload:e.target.value})
     }

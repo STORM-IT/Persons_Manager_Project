@@ -20,7 +20,7 @@ export default function PersonsMap() {
 
             {persons.map(person => {
                 return (
-                    <div id="container_person" className='h-25 overflow-hidden'>
+                    <div key={person.id} id="container_person" className='h-25 overflow-hidden'>
                         <Person_C
                             id={person.id}
                             fullname={person.fullname}
