@@ -66,10 +66,10 @@ export const updatePerson=(fullname,age,id)=>{
         await dispatch({type:"UPDATE_PERSON",payload:Persons})
         await dispatch(clearFullnameInput());
         await dispatch(clearAgeInput());
-        // const getInput_update= document.querySelectorAll(".Clear");
-        // for (let i = 0; i < getInput_update.length; i++) {
-        //     getInput_update[i].value=""
-        // }
+        const getInput_update= document.querySelectorAll(".Clear");
+        for (let i = 0; i < getInput_update.length; i++) {
+            getInput_update[i].value=""
+        }
         // const List_Person = [...getState().persons];
         // const find_index = List_Person.findIndex(person => person.id == id);
         // const person = List_Person[find_index];

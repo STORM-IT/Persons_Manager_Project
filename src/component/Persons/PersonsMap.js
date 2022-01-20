@@ -27,7 +27,7 @@ export default function PersonsMap() {
                             age={person.age}
                             set_fullname_person={e=>dispatch(setFullnamePerson(e))}
                             set_age_person={e=>dispatch(setAgePerson(e))}
-                            edit_person={()=>dispatch(updatePerson(person_fullname,person_age,person.id))}
+                            edit_person={updatePerson}
                             delete_person={() => dispatch(deletePerson(person.id))}
                         />
                     </div>
