@@ -6,12 +6,11 @@ import PersonsMap from './component/Persons/PersonsMap'
 import $ from 'jquery'
 import { findDOMNode } from 'react-dom'
 
-export default function App(prop)  {
+export default function App(prop) {
   const showPersons = useSelector(state => state.showPersons)
   const slide = useRef();
-  const set_Toggle_Slide=(showOrHidden)=>{
+  const set_Toggle_Slide = (showOrHidden) => {
     console.log(showOrHidden)
-    debugger
     switch (showOrHidden) {
       case true:
         $(findDOMNode(slide.current)).slideDown("slow");
@@ -19,28 +18,16 @@ export default function App(prop)  {
       case false:
         $(findDOMNode(slide.current)).slideUp("slow");
         break;
-    
-   
     }
   }
-  // useEffect(() => {
-
-  // }, []);
-  
   return (
     <Fragment>
-        <Header/>
-        
-  
-        
-        {showPersons?set_Toggle_Slide(true):set_Toggle_Slide(false)}
-
-        
-        
-        <div ref={slide}>
-        <PersonsMap/>
-        </div>
-        <ToastContainer/>
+      <Header />
+      {showPersons ? set_Toggle_Slide(true) : set_Toggle_Slide(false)}
+      <div ref={slide}>
+        <PersonsMap />
+      </div>
+      <ToastContainer />
     </Fragment>
 
   )
