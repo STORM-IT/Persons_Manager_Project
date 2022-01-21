@@ -1,4 +1,4 @@
-import { React, useEffect,useRef } from 'react'
+import { React, useEffect, useRef } from 'react'
 import { Button, Alert, Badge } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { showPersons } from '../../Redux/Action/showPersons.js';
@@ -7,6 +7,7 @@ import { setFullnamePerson } from '../../Redux/Action/person_fullname.js';
 import { setAgePerson } from '../../Redux/Action/person_age.js';
 import $ from 'jquery'
 import { findDOMNode } from 'react-dom';
+import AnimateText from '../Animation_Jqery/AnimateText.js';
 
 
 
@@ -30,14 +31,14 @@ export default function Header() {
     else {
         Color_Badge = "warning"
     }
-    
+
     const first = useRef(null);
     // const slide = useRef();
     useEffect(() => {
         setFocus.current.focus();
-        $(findDOMNode(first.current)).animate({width:"400px"},1000);
+        $(findDOMNode(first.current)).animate({ width: "400px" }, 1000);
     }, []);
- 
+
     var fullname = '';
     return (
         <div>
@@ -47,11 +48,12 @@ export default function Header() {
                     <p> Please write your information and click <kbd className="bg-success">Add Person</kbd></p>
                 </Alert>
                 <br />
-                
-              
 
-                <Badge ref={first}  pill bg='light' className='p-2 display-3 text-dark'  >Youre lenght list persons is <Badge bg={Color_Badge}>{persons.length}</Badge> 👀</Badge>
-            
+                <Badge pill bg='light' className='p-2 display-3 text-dark'  >Youre lenght list persons is <Badge bg={Color_Badge}>{persons.length}</Badge> 👀</Badge>
+
+
+
+
                 <br />
                 <div >
                     <div id='div_text_style'>
@@ -73,14 +75,13 @@ export default function Header() {
                     </div>
                 </div>
                 <br />
-                <Button type='submit' id='btn_submit' onClick={() => dispatch(addPersons(person_fullname, person_age))} className=" mb-5 mt-2">Add persons</Button>
-                <br />
-                <br />
-                <Button onClick={() => dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>
-                    {List_showPersons ? "HIDDEN" : "SHOW"}
-                </Button>
+                <Button type='submit' id='btn_submit' onClick={() => dispatch(addPersons(person_fullname, person_age))} className="  mt-2">Add persons</Button>
+                <AnimateText></AnimateText>
+                    <Button onClick={() => dispatch(showPersons())} className={List_showPersons ? "btn-warning" : "btn-info"}>
+                        {List_showPersons ? "HIDDEN" : "SHOW"}
+                    </Button>
 
-                <hr />
+                
             </form>
         </div>
 

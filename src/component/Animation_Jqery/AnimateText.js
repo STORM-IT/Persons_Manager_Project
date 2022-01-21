@@ -3,12 +3,15 @@ import { findDOMNode } from 'react-dom';
 import $ from 'jquery'
 
 export default function AnimateText({children}) {
-    const First = useRef();
+    const first = useRef();
     // const slide = useRef();
     useEffect(() => {
-        $(findDOMNode(First)).animate({top:"30px"},"slow");
+      
+
+         $(findDOMNode(first.current)).animate({height:"40px"},1000);
+      
     
     },[]);
-  return <div ref={First}>{children}</div>;
+  return <div ref={first}>{children}</div>;
 }
 
