@@ -38,6 +38,16 @@ export const addPersons=(fullname,age)=>{
             await dispatch({ type: "ADD_PERSON", payload: List_Person })
             await dispatch(clearFullnameInput());
             await dispatch(clearAgeInput());
+                toast.success('success to add 🤞', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark'
+            });
         }
     }
 }
@@ -52,6 +62,16 @@ export const deletePerson=(id)=>{
         const filter_persons=List_Person.filter(person =>person.id!=id)
         console.log(filter_persons)
         await dispatch({type:"DELETE_PERSONS", payload:filter_persons})
+        toast.warning('success to Removed 😐', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'dark'
+        });
     }
 }
 export const updatePerson=(fullname,age,id)=>{
@@ -70,6 +90,16 @@ export const updatePerson=(fullname,age,id)=>{
         for (let i = 0; i < getInput_update.length; i++) {
             getInput_update[i].value=""
         }
+        toast.info('success to Update 🤞', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'dark'
+        });
         // const List_Person = [...getState().persons];
         // const find_index = List_Person.findIndex(person => person.id == id);
         // const person = List_Person[find_index];
