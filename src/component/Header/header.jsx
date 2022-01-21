@@ -1,11 +1,16 @@
-import { React, useEffect } from 'react'
+import { React, useEffect,useRef } from 'react'
 import { Button, Alert, Badge } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { showPersons } from '../../Redux/Action/showPersons.js';
 import { addPersons } from '../../Redux/Action/persons.js'
 import { setFullnamePerson } from '../../Redux/Action/person_fullname.js';
 import { setAgePerson } from '../../Redux/Action/person_age.js';
-import { useRef } from 'react';
+import $ from 'jquery'
+import { findDOMNode } from 'react-dom';
+
+
+
+
 
 
 export default function Header() {
@@ -15,9 +20,6 @@ export default function Header() {
     const List_showPersons = useSelector(state => state.showPersons)
     const dispatch = useDispatch()
     const setFocus = useRef();
-    useEffect(() => {
-        setFocus.current.focus();
-    }, []);
     var Color_Badge = "";
     if (persons.length > 5) {
         Color_Badge = "success"
@@ -28,7 +30,14 @@ export default function Header() {
     else {
         Color_Badge = "warning"
     }
-
+    
+    const first = useRef(null);
+    // const slide = useRef();
+    useEffect(() => {
+        setFocus.current.focus();
+        $(findDOMNode(first.current)).animate({width:"400px"},1000);
+    }, []);
+ 
     var fullname = '';
     return (
         <div>
@@ -38,7 +47,11 @@ export default function Header() {
                     <p> Please write your information and click <kbd className="bg-success">Add Person</kbd></p>
                 </Alert>
                 <br />
-                <Badge pill bg='light' className='p-2 display-3 text-dark' >Youre lenght list persons is <Badge bg={Color_Badge}>{persons.length}</Badge> 👀</Badge>
+                
+              
+
+                <Badge ref={first}  pill bg='light' className='p-2 display-3 text-dark'  >Youre lenght list persons is <Badge bg={Color_Badge}>{persons.length}</Badge> 👀</Badge>
+            
                 <br />
                 <div >
                     <div id='div_text_style'>

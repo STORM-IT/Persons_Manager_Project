@@ -14,6 +14,7 @@ export default function App(prop) {
     switch (showOrHidden) {
       case true:
         $(findDOMNode(slide.current)).slideDown("slow");
+       
         break;
       case false:
         $(findDOMNode(slide.current)).slideUp("slow");
