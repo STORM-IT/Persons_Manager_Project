@@ -1,19 +1,23 @@
-import { React} from 'react'
+import { React, useEffect} from 'react'
 import { Button, Alert, Badge } from 'react-bootstrap'
 import { useSelector,useDispatch } from 'react-redux'
 import {showPersons} from '../../Redux/Action/showPersons.js';
 import { addPersons } from '../../Redux/Action/persons.js'
 import { setFullnamePerson } from '../../Redux/Action/person_fullname.js';
 import { setAgePerson } from '../../Redux/Action/person_age.js';
+import { useRef } from 'react';
 
 
     export default function Header() {
     const persons = useSelector(state => state.persons)
     const person_fullname = useSelector(state => state.person_fullname)
     const person_age = useSelector(state => state.person_age)
-
     const List_showPersons = useSelector(state => state.showPersons)
     const dispatch = useDispatch()
+    const setFocus=useRef();
+    useEffect(() => {
+      setFocus.current.focus();
+    },[]);
     var Color_Badge = "";
     if (persons.length > 5) {
         Color_Badge = "success"
@@ -24,6 +28,7 @@ import { setAgePerson } from '../../Redux/Action/person_age.js';
     else {
         Color_Badge = "warning"
     }
+    
     var fullname='';
     return (
         <div>
@@ -37,7 +42,7 @@ import { setAgePerson } from '../../Redux/Action/person_age.js';
             <br />
             <div >
                 <div id='div_text_style'>
-                    <input id='input_text_style' value={person_fullname} className="Clear" type="text"  onChange={event =>dispatch(setFullnamePerson(event)) } placeholder="please type your name" />
+                    <input id='input_text_style' ref={setFocus} value={person_fullname} className="Clear" type="text"  onChange={event =>dispatch(setFullnamePerson(event)) } placeholder="please type your name" />
                     <span className="span_text_style bottom"></span>
                     <span className="span_text_style right"></span>
                     <span className="span_text_style top"></span>
